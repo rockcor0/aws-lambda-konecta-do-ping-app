@@ -14,7 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DoPingApplication {
 
-
+	public final static String IP_DIR = "****";
+	public final static int PORT = 0;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DoPingApplication.class, args);
@@ -32,7 +33,7 @@ public class DoPingApplication {
 			BufferedReader in = null;
 
 			try {
-				pingSocket = new Socket("************", 000);
+				pingSocket = new Socket("IP_DIR", PORT);
 //				pingSocket = new Socket("127.0.0.1", 8080);
 				out = new PrintWriter(pingSocket.getOutputStream(), true);
 				in = new BufferedReader(new InputStreamReader(pingSocket.getInputStream()));
@@ -60,7 +61,7 @@ public class DoPingApplication {
 			System.out.println("Sending Ping Request to " + ipAddress);
 			System.out.println(inet.isReachable(5000) ? "Host is reachable" : "Host is NOT reachable");
 
-			ipAddress = "172.20.73.20";
+			ipAddress = "IP_DIR";
 			inet = InetAddress.getByName(ipAddress);
 
 			System.out.println("Sending Ping Request to " + ipAddress);
